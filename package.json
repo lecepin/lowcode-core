@@ -1,7 +1,6 @@
 {
-  "name": "lowcode-core",
+  "name": "lowcode-pack",
   "version": "0.0.1",
-  "private": true,
   "homepage": "./",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
