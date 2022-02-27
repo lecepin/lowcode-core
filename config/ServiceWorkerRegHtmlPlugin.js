@@ -3,7 +3,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 class ServiceWorkerRegHtmlPlugin {
-  constructor(swName = "sw.reg.mgr.js") {
+  constructor(isEnvProduction, swName = "sw.reg.mgr.js") {
+    this.isEnvProduction = isEnvProduction;
     this.swName = swName;
   }
 
@@ -14,6 +15,23 @@ class ServiceWorkerRegHtmlPlugin {
         HtmlWebpackPlugin.getHooks(compilation).afterTemplateExecution.tap(
           "ServiceWorkerRegHtmlPlugin",
           (data) => {
+            if (!this.isEnvProduction) {
+              data.bodyTags.push({
+                tagName: "script",
+                attributes: {
+                  type: "module",
+                },
+                innerHTML: `(function () {
+                  if ("serviceWorker" in navigator) {
+                    navigator.serviceWorker.ready.then(swReg => {
+                      swReg.unregister();
+                    });
+                  }
+                })();`,
+              });
+              return;
+            }
+
             if (
               !fs.existsSync(
                 path.resolve(

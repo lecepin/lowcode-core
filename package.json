@@ -1,10 +1,11 @@
 {
-  "name": "bilibili-cover-editor",
+  "name": "lowcode-core",
   "version": "0.0.1",
   "private": true,
   "homepage": "./",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@monaco-editor/react": "^4.3.1",
     "antd": "^4.14.0",
     "classnames": "^2.3.1",
     "css": "^3.0.0",
@@ -16,8 +17,7 @@
     "mobx-react": "^7.2.0",
     "nanoid": "^3.1.23",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-monaco-editor": "^0.43.0"
+    "react-dom": "^17.0.1"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -63,7 +63,6 @@
     "less": "^3.13.1",
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "0.11.3",
-    "monaco-editor-webpack-plugin": "^4.1.1",
     "optimize-css-assets-webpack-plugin": "5.0.4",
     "pnp-webpack-plugin": "1.6.4",
     "postcss-flexbugs-fixes": "4.2.1",

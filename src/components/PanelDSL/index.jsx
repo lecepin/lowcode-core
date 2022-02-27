@@ -1,7 +1,7 @@
 import React from "react";
 import Logger from "lp-logger";
 import { observer } from "mobx-react";
-import MonacoEditor from "react-monaco-editor";
+import MonacoEditor from "@monaco-editor/react";
 
 import "./index.less";
 
